@@ -96,6 +96,7 @@
             align-items: center; 
             justify-content: center;
             margin-right: 8px; /* Spacing from input */
+            z-index: 100;
         }
         
         .info-icon-svg {
@@ -119,7 +120,7 @@
             border-radius: 12px; 
             padding: 14px 16px; 
             position: absolute; 
-            z-index: 999; 
+            z-index: 10000; 
             bottom: 140%; 
             left: 50%; 
             transform: translateX(-50%) scale(0.9);
@@ -406,7 +407,7 @@
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); 
             border: 1px solid #e2e8f0;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
         }
         .provider-chip::before {
             content: '';
