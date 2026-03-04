@@ -371,9 +371,7 @@
         "silverdale": [ { id: "sil_1", name: "Dr. Kushner", role: "Provider", default: 44, schedule: {} }, { id: "sil_2", name: "Dr. Kwolek", role: "Provider", default: 44, schedule: {} }, { id: "sil_3", name: "Dr. Lamberton", role: "Provider", default: 44, schedule: {} }, { id: "sil_4", name: "Nancy", role: "Assistant", default: 48, schedule: {} }, { id: "sil_5", name: "Gabby", role: "Assistant", default: 48, schedule: {} }, { id: "sil_6", name: "Victoria", role: "Assistant", default: 48, schedule: {} } ],
         "federalway": [ { id: "fed_1", name: "Dr. Mara", role: "Provider", default: 66, schedule: {} }, { id: "fed_2", name: "Dr. Bains", role: "Provider", default: 88, schedule: {} } ],
         "sleepmedicine": [ 
-            { id: "sleep_1", name: "Dr. Jacobs", role: "Provider", default: 35, schedule: {} }, 
-            { id: "sleep_2", name: "Rachel", role: "Provider", default: 40, schedule: {} },
-            { id: "sleep_3", name: "Dr. Smith", role: "Provider", default: 60, schedule: {} }
+            { id: "sleep_1", name: "Dr. Smith", role: "Provider", default: 60, schedule: {} }
         ]
     };
 
@@ -459,7 +457,9 @@
     function adjustNumber(inputId, amount) {
         if(inputId === 'unfilledSpots') stopGlow();
         const input = document.getElementById(inputId);
-        let val = parseInt(input.value) || 0; input.value = val + amount;
+        let val = parseInt(input.value) || 0; 
+        val = Math.max(0, val + amount);
+        input.value = val;
         if(inputId === 'unfilledSpots') updateUnfilledStyle(); else updateTotalSpots();
     }
 
